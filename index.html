@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediCare - Hospital Appointment Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#home" class="logo">Medi<span>Care</span></a>
+    <button id="menu-btn" class="menu-btn" type="button">Menu</button>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#departments">Departments</a></li>
+      <li><a href="#doctors">Doctors</a></li>
+      <li><a href="#booking">Book Appointment</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Your health, our priority</h1>
+      <p>Book an appointment with our specialist doctors in a few simple steps. No waiting in long queues.</p>
+      <a href="#departments" class="btn">Book Appointment</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <h3>10+</h3>
+        <p>Specialist Doctors</p>
+      </div>
+      <div>
+        <h3>5</h3>
+        <p>Departments</p>
+      </div>
+      <div>
+        <h3>24/7</h3>
+        <p>Emergency Care</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Departments -->
+  <section id="departments" class="section">
+    <h2>Our Departments</h2>
+    <p class="sub">Select a department to see its doctors</p>
+    <div id="department-list" class="dept-grid"></div>
+  </section>
+
+  <!-- Doctors -->
+  <section id="doctors" class="section alt">
+    <h2>Our Doctors</h2>
+    <p class="sub" id="doctor-heading">Showing all doctors</p>
+    <button id="show-all" class="btn-outline" type="button">Show All Doctors</button>
+    <div id="doctor-list" class="doctor-grid"></div>
+  </section>
+
+  <!-- Booking -->
+  <section id="booking" class="section">
+    <h2>Book an Appointment</h2>
+    <p class="sub">Step 1: choose a doctor, Step 2: pick a date and time, Step 3: fill your details</p>
+
+    <div class="booking-box">
+
+      <div id="selected-doctor" class="selected-doctor">
+        <p class="hint">Please select a doctor from the Doctors section above.</p>
+      </div>
+
+      <div id="step-slots" class="hidden">
+        <label for="appt-date">Choose a date</label>
+        <input type="date" id="appt-date">
+        <p class="error" id="date-error"></p>
+
+        <label>Available time slots</label>
+        <div id="slot-list" class="slot-grid"></div>
+        <p class="error" id="slot-error"></p>
+      </div>
+
+      <form id="appointment-form" class="hidden" novalidate>
+        <p id="summary" class="summary"></p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pname">Patient Name</label>
+            <input type="text" id="pname" placeholder="Enter full name">
+            <p class="error" id="pname-error"></p>
+          </div>
+          <div class="form-group">
+            <label for="page">Age</label>
+            <input type="number" id="page" placeholder="Enter age">
+            <p class="error" id="page-error"></p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pphone">Phone Number</label>
+            <input type="text" id="pphone" placeholder="10 digit mobile number" maxlength="10">
+            <p class="error" id="pphone-error"></p>
+          </div>
+          <div class="form-group">
+            <label for="pemail">Email</label>
+            <input type="email" id="pemail" placeholder="Enter email">
+            <p class="error" id="pemail-error"></p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="preason">Reason for Visit</label>
+          <textarea id="preason" rows="3" placeholder="Briefly describe your problem"></textarea>
+          <p class="error" id="preason-error"></p>
+        </div>
+
+        <button type="submit" class="btn">Confirm Appointment</button>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- Confirmation modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <div class="tick">&#10003;</div>
+      <h2>Appointment Confirmed</h2>
+      <p class="sub">Your appointment has been booked successfully.</p>
+      <div id="modal-details" class="modal-details"></div>
+      <div class="modal-buttons">
+        <button id="print-btn" class="btn-outline" type="button">Print</button>
+        <button id="close-modal" class="btn" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <section id="contact" class="section alt">
+    <h2>Contact Us</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Address</h3>
+        <p>MediCare Hospital<br>42, Health Avenue, Green Park<br>New Delhi - 110016</p>
+      </div>
+      <div class="contact-card">
+        <h3>Phone</h3>
+        <p>Appointments: +91 98765 43210<br>Emergency: 1800 123 4567</p>
+      </div>
+      <div class="contact-card">
+        <h3>OPD Timings</h3>
+        <p>Monday to Saturday<br>9:00 AM to 6:00 PM<br>Sunday: Closed (Emergency only)</p>
+      </div>
+      <div class="contact-card">
+        <h3>Email</h3>
+        <p>info@medicare-demo.com<br>support@medicare-demo.com</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 MediCare Hospital. All rights reserved.</p>
+    <button id="reset-btn" class="reset-btn" type="button">Reset demo bookings</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
